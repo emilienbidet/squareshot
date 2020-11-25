@@ -29,6 +29,7 @@ class Player:
         #ETAT, PROPRIETES DE JOUEUR
         self.vie = 100
         self.endurance = 100
+        self.bullets = []
 
         self.acceleration = 1
         self.tired = False
@@ -39,7 +40,6 @@ class Player:
 
     def update(self):
         print("Endurance : " + str(self.endurance))
-        print("Position : " + str(self.position))
         self.move()
         self.recepurationEndurance()
         self.shot()
@@ -67,7 +67,7 @@ class Player:
             self.acceleration = 1
 
         self.rect = self.rect.move(vx*Player.SPEED*self.acceleration, vy*Player.SPEED*self.acceleration)
-        posX, posY = self.position
+        posX, posY = self.rect.x, self.rect.y
         self.position = (posX + vx, posY + vy)
 
         if self.acceleration == 2:
@@ -86,6 +86,10 @@ class Player:
         else:
             self.tired = False
 
-    def shot():
-        #make bullet
-        return 0
+    def shot(self):
+        keys = pygame.mouse.get_pressed(num_buttons=3)
+        if keys[0] and not len(bullets) == 3:
+            if self.type_player == 0:
+                bullets.append(Bullet(0, self.position, pygame.mouse.get_pos()))
+            else:
+                bullets.append(Bullet(1, self.position, pygame.mouse.get_pos()))
