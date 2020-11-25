@@ -1,10 +1,10 @@
 import pygame
 from src.game_config import *
+from src.bullet import *
 
 class Player:
 
     #CONFIGURATION ET PROPRIETES
-    IMAGE_FOR_PLAYERS = ["media/player.png", "media/ia.png"]
 
     HEIGHT = 40
     WIDTH = HEIGHT
@@ -19,7 +19,7 @@ class Player:
         self.rect = pygame.Rect(GameConfig.WINDOW_WIDTH/2, GameConfig.WINDOW_HEIGHT/2, Player.WIDTH, Player.HEIGHT)
 
         #IMAGE
-        self.image = pygame.image.load(Player.IMAGE_FOR_PLAYERS[type_player])
+        self.image = pygame.image.load(GameConfig.IMAGE_FOR_PLAYERS[type_player])
 
         #POSITION, MOVE, ACCELERATION, ETC
         self.position = (GameConfig.WINDOW_WIDTH/2, GameConfig.WINDOW_HEIGHT/2)
@@ -39,8 +39,10 @@ class Player:
 
     def update(self):
         print("Endurance : " + str(self.endurance))
+        print("Position : " + str(self.position))
         self.move()
         self.recepurationEndurance()
+        self.shot()
 
     def move(self):
         keys = pygame.key.get_pressed()
@@ -65,6 +67,8 @@ class Player:
             self.acceleration = 1
 
         self.rect = self.rect.move(vx*Player.SPEED*self.acceleration, vy*Player.SPEED*self.acceleration)
+        posX, posY = self.position
+        self.position = (posX + vx, posY + vy)
 
         if self.acceleration == 2:
             self.endurance -= 2
