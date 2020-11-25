@@ -39,10 +39,10 @@ class Player:
 
     def update(self):
         print("Endurance : " + str(self.endurance))
-        print("Position : " + str(self.position))
+        print("Position --- x : " + str(self.rect.x) + " --- y : " + str(self.rect.y))
         self.move()
         self.recepurationEndurance()
-        self.shot()
+        #self.shot()
 
     def move(self):
         keys = pygame.key.get_pressed()
@@ -70,7 +70,7 @@ class Player:
         posX, posY = self.position
         self.position = (posX + vx, posY + vy)
 
-        if self.acceleration == 2:
+        if self.acceleration == 2 and (vx != 0 or vy != 0):
             self.endurance -= 2
             if self.endurance <= 0:
                 self.tired = True
