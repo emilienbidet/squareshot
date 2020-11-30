@@ -4,7 +4,7 @@ import math
 
 class Bullet(pygame.sprite.Sprite):
 
-    def __init__(self, player, mouse_pos):
+    def __init__(self, player, player_type, mouse_pos):
         super().__init__()
         self.player = player
         # Bullet's hitbox
@@ -12,7 +12,8 @@ class Bullet(pygame.sprite.Sprite):
         y = player.rect.y + GameConfig.PLAYER_HEIGHT/4
         self.rect = pygame.Rect(x, y, GameConfig.BULLET_WIDTH, GameConfig.BULLET_HEIGHT)
         # Bullet's image
-        self.image = pygame.image.load(GameConfig.BULLET_IMAGE[0])
+        self.image = pygame.image.load(GameConfig.BULLET_IMAGE[player_type])
+        self.image = pygame.transform.scale(self.image, (GameConfig.BULLET_WIDTH, GameConfig.BULLET_HEIGHT))
         # Bullet's angle
         self.angle = self.get_angle(mouse_pos)
 
