@@ -7,7 +7,7 @@ class Map():
     def __init__(self, width=5, height=5, walls=50):
         self.width = width
         self.height = height
-        self.cells = Maze(int(width/3+2), int(height/3+2))
+        self.cells = Maze(int(width/3+1), int(height/3+1))
         self.cells.makeMaze()
         print(self.cells)
         #self.cells.reduce(walls)
