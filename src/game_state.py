@@ -11,14 +11,8 @@ class GameState:
         self.player_2 = Player(1, self)
         map = Map(int(GameConfig.WINDOW_WIDTH/GameConfig.WALL_WIDTH),
                   int(GameConfig.WINDOW_HEIGHT/GameConfig.WALL_HEIGHT),
-                  0)
+                  100)
         self.walls = map.walls
-
-        # for y in [0,11]:
-        #     for x in range(12):
-        #         self.walls.add(Wall(y,x))
-        #
-        # self.walls.add(Wall(5,5))
 
     def update(self, player_1_state, player_2_state):
         self.player_1.update(player_1_state)
