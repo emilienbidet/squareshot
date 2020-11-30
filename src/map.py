@@ -107,7 +107,7 @@ class Maze:
             nv += 1
 
     def get_walls_count(self):
-        counter =0
+        counter = 0
         for x in range(self.nx):
             for y in range(self.ny):
                 cell = self.cell_at(x, y)
