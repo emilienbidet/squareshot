@@ -3,12 +3,12 @@ class GameConfig:
     # Window configs
 
     WINDOW_HEIGHT = 600
-    WINDOW_WIDTH = 600
+    WINDOW_WIDTH = 800
 
     COLOR_BLUE = (161, 237, 242)
     TEXT_COLOR = (245,0,244)
 
-    WALL_QUANTITY = 60 # percentage of walls to remove
+    WALL_QUANTITY = 10 # percentage of walls to remove
 
     # ---------------------------------------------------
 

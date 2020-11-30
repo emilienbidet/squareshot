@@ -11,7 +11,7 @@ class GameState:
         self.player_2 = Player(1, self)
         map = Map(int(GameConfig.WINDOW_WIDTH/GameConfig.WALL_WIDTH),
                   int(GameConfig.WINDOW_HEIGHT/GameConfig.WALL_HEIGHT),
-                  100)
+                  GameConfig.WALL_QUANTITY)
         self.walls = map.walls
 
     def update(self, player_1_state, player_2_state):

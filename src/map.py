@@ -18,9 +18,9 @@ class Map():
             self.walls.add(Wall(0,y))
             self.walls.add(Wall(width-1,y))
         x, y = 0,0
-        for c_x in range(1, width-2, 2):
+        for c_x in range(1, width-1, 2):
             y = 0
-            for c_y in range(1, height-2, 2):
+            for c_y in range(1, height-1, 2):
                 cell = self.cells.cell_at(x,y)
                 if cell.walls['W']:
                     self.walls.add(Wall(c_x-1, c_y))
